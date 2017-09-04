@@ -1,0 +1,8 @@
+page-home {
+  .divi:after {
+    content: ', ';
+  }
+  .divi:last-of-type:after {
+    content: '.';
+  }
+}

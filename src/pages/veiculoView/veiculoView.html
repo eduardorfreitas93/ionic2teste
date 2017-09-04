@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Veículo
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Nome: {{veiculo.nome}}
+    </ion-card-header>
+
+    <ion-card-content>
+      Placa: {{veiculo.placa}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>KM</ion-label>
+      <ion-input type="tel" [(ngModel)]="km.km"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      Lista de km
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item *ngFor="let item of listKm | async">
+        {{item.km}} Km
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button full (click)="salvar()">Salvar</button>
+</ion-footer>

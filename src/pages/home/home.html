@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      KmMed
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+  <!--<ion-item-sliding *ngFor="let veiculo of veiculos | async" (click)="view(veiculo)">-->
+  <!--<ion-item>-->
+  <!--{{veiculo.nome}}-->
+  <!--</ion-item>-->
+  <!--<ion-item-options side="right">-->
+  <!--<button ion-button color="danger" (click)="remover(veiculo.$key)">-->
+  <!--<ion-icon name="trash"></ion-icon>-->
+  <!--</button>-->
+  <!--</ion-item-options>-->
+  <!--</ion-item-sliding>-->
+    <!--<h3>Current Latitude back: {{latBack}}</h3>-->
+    <!--<h3>Current Longitude back: {{lngBack}}</h3>-->
+    <h3>Current Latitude: {{lat}}</h3>
+    -15.850955
+    <h3>Current Longitude: {{lng}}</h3>
+    -47.950515
+    <h3 *ngFor="let getraio of getraios">tipo: {{getraio.transitionType}}</h3>
+  </ion-list>
+
+  <ion-fab left bottom>
+    <!--<button ion-fab color="secondary" (click)="getStores()">-->
+    <!--<ion-icon name="play"></ion-icon>-->
+    <!--</button>-->
+
+    <!--<button ion-fab color="secondary" (click)="start()">-->
+      <!--<ion-icon name="play"></ion-icon>-->
+    <!--</button>-->
+
+    <!--<button ion-fab color="secondary" (click)="openCam1()">-->
+    <!--<ion-icon name="camera"></ion-icon>1-->
+    <!--</button>-->
+
+    <!--<button ion-fab color="secondary" (click)="openCam2()">-->
+    <!--<ion-icon name="camera"></ion-icon>2-->
+    <!--</button>-->
+
+    <!--<button ion-fab color="secondary" (click)="compCam()">-->
+    <!--<ion-icon name="camera"></ion-icon>3-->
+    <!--</button>-->
+  </ion-fab>
+
+  <!--<ion-fab right bottom>-->
+    <!--<button ion-fab color="secondary" (click)="getgeo()">-->
+      <!--<ion-icon name="ios-clipboard"></ion-icon>-->
+    <!--</button>-->
+
+    <!--<button ion-fab color="secondary" (click)="stop()">-->
+      <!--<ion-icon name="pause"></ion-icon>-->
+    <!--</button>-->
+  <!--</ion-fab>-->
+
+  <!--<ion-card>-->
+  <!--<ion-list>-->
+  <!--<ion-list-header text-center>-->
+  <!--Serviços-->
+  <!--</ion-list-header>-->
+  <!--<ion-list ion-item>-->
+  <!--<span *ngFor="let service of teste" class="divi" text-wrap>{{service}}</span>-->
+  <!--<h2>Valor total do serviço:</h2>-->
+  <!--<h2>Valor já liberado:</h2>-->
+  <!--<h2>Valor da próxima parcela:</h2>-->
+  <!--</ion-list>-->
+  <!--</ion-list>-->
+  <!--</ion-card>-->
+
+</ion-content>
+
+<!--<ion-footer>-->
+<!--<ion-grid>-->
+<!--<ion-row>-->
+<!--<ion-col col-12>-->
+<!--<ion-item>-->
+<!--<h2>Total</h2>-->
+<!--<ion-note item-right>R$ 700,00</ion-note>-->
+<!--</ion-item>-->
+<!--</ion-col>-->
+<!--<ion-col col-6>-->
+<!--<button color="default" ion-button block icon-left larger>-->
+<!--<ion-icon name="ios-clipboard"></ion-icon>-->
+<!--Voltar-->
+<!--</button>-->
+<!--</ion-col>-->
+<!--<ion-col col-6>-->
+<!--<button color="default" ion-button block icon-left larger>-->
+<!--<ion-icon name="ios-clipboard"></ion-icon>-->
+<!--Avançar-->
+<!--</button>-->
+<!--</ion-col>-->
+<!--</ion-row>-->
+<!--</ion-grid>-->
+<!--</ion-footer>-->
