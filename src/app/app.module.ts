@@ -7,9 +7,11 @@ import {Camera} from '@ionic-native/camera';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 
+import {SpeechRecognition} from '@ionic-native/speech-recognition';
+
 import {Geolocation} from '@ionic-native/geolocation';
 import {BackgroundGeolocation} from '@ionic-native/background-geolocation';
-import { Geofence } from '@ionic-native/geofence';
+import {Geofence} from '@ionic-native/geofence';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
@@ -52,6 +54,7 @@ export const firebaseConf = {
     BackgroundGeolocation,
     Geofence,
     Camera,
+    SpeechRecognition,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

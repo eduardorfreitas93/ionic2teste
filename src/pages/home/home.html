@@ -21,14 +21,19 @@
   <!--</ion-item-sliding>-->
     <!--<h3>Current Latitude back: {{latBack}}</h3>-->
     <!--<h3>Current Longitude back: {{lngBack}}</h3>-->
-    <h3>Current Latitude: {{lat}}</h3>
-    -15.850955
-    <h3>Current Longitude: {{lng}}</h3>
-    -47.950515
-    <h3 *ngFor="let getraio of getraios">tipo: {{getraio.transitionType}}</h3>
+    <!--<h3>Current Latitude: {{lat}}</h3>-->
+    <!-- -15.850955-->
+    <!--<h3>Current Longitude: {{lng}}</h3>-->
+    <!-- -47.950515-->
+    <!--<h3 *ngFor="let getraio of getraios">tipo: {{getraio.transitionType}}</h3>-->
   </ion-list>
 
   <ion-fab left bottom>
+
+    <button ion-fab color="secondary" (click)="listSpeech()">
+      listSpeech
+    </button>
+
     <!--<button ion-fab color="secondary" (click)="getStores()">-->
     <!--<ion-icon name="play"></ion-icon>-->
     <!--</button>-->

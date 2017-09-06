@@ -2,6 +2,7 @@ import {Component, NgZone} from '@angular/core';
 import {NavController, ModalController} from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {Camera, CameraOptions} from '@ionic-native/camera';
+import {SpeechRecognition, SpeechRecognitionListeningOptionsAndroid} from '@ionic-native/speech-recognition';
 
 import {VeiculoCadastro} from '../veiculoCadastro/veiculoCadastro';
 import {VeiculoView} from '../veiculoView/veiculoView';
@@ -43,34 +44,64 @@ export class HomePage {
               private backgroundGeolocation: BackgroundGeolocation,
               private geolocation: Geolocation,
               private geofence: Geofence,
+              private speech: SpeechRecognition,
               private camera: Camera) {
     // this.veiculos = af.list('/veiculos');
 
-    let options = {
-      frequency: 3000,
-      enableHighAccuracy: true
+    // let options = {
+    //   frequency: 3000,
+    //   enableHighAccuracy: true
+    // };
+    //
+    // this.geolocation.watchPosition(options).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
+    //   this.zone.run(() => {
+    //     this.lat = position.coords.latitude;
+    //     this.lng = position.coords.longitude;
+    //   });
+    // });
+    //
+    // geofence.initialize().then(() => {
+    //     geofence.onTransitionReceived().subscribe((res) => {
+    //       this.zone.run(() => {
+    //         this.getraios.push(res[0]);
+    //         console.log('onTransitionReceived');
+    //         console.log(res);
+    //       })
+    //     });
+    //   }, (err) => console.log(err)
+    // );
+    // this.addGeofence();
+
+    speech.hasPermission()
+      .then((hasPermission: boolean) => {
+console.log(hasPermission);
+        if (!hasPermission) {
+          speech.requestPermission()
+            .then(
+              () => console.log('Granted'),
+              () => console.log('Denied')
+            )
+        }
+
+      });
+  }
+
+  listSpeech(){
+    let op ={
+      language: 'pt-BR',
+      showPopup: false
     };
 
-    this.geolocation.watchPosition(options).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
-      this.zone.run(() => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-      });
-    });
-
-    geofence.initialize().then(() => {
-        geofence.onTransitionReceived().subscribe((res) => {
-          this.zone.run(() => {
-            this.getraios.push(res[0]);
-            console.log('onTransitionReceived');
-            console.log(res);
-          })
-        });
-      }, (err) => console.log(err)
-    );
-    this.addGeofence();
-
+    this.speech.startListening(op)
+      .subscribe(
+        (matches) => {
+          console.log(matches);
+        },
+        (onerror) => console.log('error:', onerror)
+      )
   }
+
+  //pt-BR
 
   // getStores() {
   //   setTimeout(() => {
@@ -79,20 +110,20 @@ export class HomePage {
   //   }, 2000);
   //
   // }
-
-  addGeofence() {
-    //options describing geofence
-    let fence = {
-      id: 'teste', //any unique ID
-      latitude: -15.850955, //center of geofence radius
-      longitude: -47.950515,
-      radius: 20, //radius to edge of geofence in meters
-      transitionType: 3, //see 'Transition Types' below
-    };
-
-    this.geofence.addOrUpdate(fence).then(() => {}, (err) => console.log('Geofence failed to add'));
-  }
-
+  //
+  // addGeofence() {
+  //   //options describing geofence
+  //   let fence = {
+  //     id: 'teste', //any unique ID
+  //     latitude: -15.850955, //center of geofence radius
+  //     longitude: -47.950515,
+  //     radius: 20, //radius to edge of geofence in meters
+  //     transitionType: 3, //see 'Transition Types' below
+  //   };
+  //
+  //   this.geofence.addOrUpdate(fence).then(() => {}, (err) => console.log('Geofence failed to add'));
+  // }
+  //
   // start() {
   //   let config = {
   //     desiredAccuracy: 0,
