@@ -30,9 +30,13 @@
 
   <ion-fab left bottom>
 
-    <button ion-fab color="secondary" (click)="listSpeech()">
-      listSpeech
+    <button ion-fab color="secondary" (press)="press()" (touchend)="upp()">
+      press
     </button>
+
+    <!--<button ion-fab color="secondary" (click)="listSpeech()">-->
+      <!--listSpeech-->
+    <!--</button>-->
 
     <!--<button ion-fab color="secondary" (click)="getStores()">-->
     <!--<ion-icon name="play"></ion-icon>-->

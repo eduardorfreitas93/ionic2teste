@@ -74,7 +74,7 @@ export class HomePage {
 
     speech.hasPermission()
       .then((hasPermission: boolean) => {
-console.log(hasPermission);
+        console.log(hasPermission);
         if (!hasPermission) {
           speech.requestPermission()
             .then(
@@ -86,8 +86,8 @@ console.log(hasPermission);
       });
   }
 
-  listSpeech(){
-    let op ={
+  listSpeech() {
+    let op = {
       language: 'pt-BR',
       showPopup: false
     };
@@ -99,6 +99,14 @@ console.log(hasPermission);
         },
         (onerror) => console.log('error:', onerror)
       )
+  }
+
+  press() {
+    console.log('press');
+  }
+
+  upp(){
+    console.log('up');
   }
 
   //pt-BR
